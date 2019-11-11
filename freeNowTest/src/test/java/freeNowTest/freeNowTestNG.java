@@ -23,6 +23,8 @@ public class freeNowTestNG {
 	@Test
 	public void findUser() {
 		int id=0;
+		
+		//Used DRY, KISS and OOP principles
 		//Fetches the response of the api - This will be used to fetch the list of users
 	  Response responseUsers=cf.getRequest("https://jsonplaceholder.typicode.com/users");
 	  

@@ -24,10 +24,12 @@ public class freeNowTestNG {
 	  Response responseUsers=cf.getRequest("https://jsonplaceholder.typicode.com/users");
 	  
 	  //Fetch the list of users into a string array to access the id of user Samantha
+	  System.out.println("*****Fetching all users*****");
 	  List<String> jsonResponse = responseUsers.jsonPath().getList("$");
-	  System.out.println("array length "+jsonResponse.size());
+	  System.out.println("Number of users are "+jsonResponse.size());
 	  
 	  //Fetch the id of user Samantha
+	  System.out.println("*****Fetching Samantha's id*****");
 	  for (int i=0;i<jsonResponse.size();i++) {
 		  String username=responseUsers.jsonPath().getString("username["+i+"]");
 		  if (username.equalsIgnoreCase("Samantha")) {
@@ -37,15 +39,29 @@ public class freeNowTestNG {
 	  }
 	  System.out.println("Samantha's id is "+id);
 	  
+	  System.out.println("*****Fetching Samantha's Posts*****");
+	  //Fetch all the posts for Samantha's userId
 	  Response responsePosts=cf.getRequest("https://jsonplaceholder.typicode.com/posts?userId=3");
 	  List<Integer> jsonIntResponse = responsePosts.jsonPath().getList("id");
 	  
-	  System.out.println("array length of posts "+jsonIntResponse.size());
+	  System.out.println("Number of Samantha's posts are "+jsonIntResponse.size());
 	  
+	  //Fetch all the comments for all posts for Samantha's userId
+	  System.out.println("*****Fetching comments on Samantha's Posts*****");
 	  for (int j=0;j<jsonIntResponse.size();j++) {
 		  int postId=responsePosts.jsonPath().getInt("id["+j+"]");
 		  System.out.println("Post id "+postId);
+		  Response responsePostComments=cf.getRequest("https://jsonplaceholder.typicode.com/posts/1/comments?postId="+postId);
 		  
+		//Fetch email ids from all the comments for all posts for Samantha's userId
+		  List<String> jsonPostCommentsEmailResponse = responsePostComments.jsonPath().getList("email");
+		  System.out.println("Number of comments for Postid "+postId+" is "+jsonPostCommentsEmailResponse.size());
+		
+		//Validate email ids from all the comments for all posts for Samantha's userId
+		  for (int k=0;k<jsonPostCommentsEmailResponse.size();k++) {
+			  String email=jsonPostCommentsEmailResponse.get(k);
+			  System.out.println("Email id is "+email);
+		  }
 	  }
 //		  given().
 //          //param("username", "Samantha").

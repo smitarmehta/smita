@@ -9,7 +9,7 @@ public class commonFunctions {
 	public static Response getRequest(String endpoint) {
         RestAssured.defaultParser = Parser.JSON;
 
-        return given().headers("Content-Type", ContentType.JSON, "Accept", ContentType.JSON).
+        return given().//headers("Content-Type", ContentType.JSON, "Accept", ContentType.JSON).
                         when().get(endpoint).
                         then().contentType(ContentType.JSON).extract().response();
     }

@@ -1,9 +1,12 @@
 package freeNowTest;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import static org.testng.Assert.assertEquals;
 
 import java.util.List;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
@@ -58,43 +61,13 @@ public class freeNowTestNG {
 		  System.out.println("Number of comments for Postid "+postId+" is "+jsonPostCommentsEmailResponse.size());
 		
 		//Validate email ids from all the comments for all posts for Samantha's userId
+		  System.out.println("*****Validating email ids from comments on Samantha's Posts*****");
 		  for (int k=0;k<jsonPostCommentsEmailResponse.size();k++) {
 			  String email=jsonPostCommentsEmailResponse.get(k);
 			  System.out.println("Email id is "+email);
+			  AssertJUnit.assertEquals(true, cf.validateEmail(email));
+			  System.out.println("Email id is valid");
 		  }
 	  }
-//		  given().
-//          //param("username", "Samantha").
-//  when().
-//          get("https://jsonplaceholder.typicode.com/users").
-//  then().
-//	  }
-//	  int arrayId[]=given().
-//	          //param("username", "Samantha").
-//	  when().
-//	          get("https://jsonplaceholder.typicode.com/users").path("id", "3");
-////	  then(). 
-////	  extract().
-////	          path("id");
-//	  i=arrayId.length;
-//	  System.out.println("array length "+i);
-//
-//	  String username =
-//			  given().
-//			          //param("username", "Samantha").
-//			  when().
-//			          get("https://jsonplaceholder.typicode.com/users").
-//			  then().
-//			  extract().
-//			          path("username["+i+"]");
-//	  System.out.println("Samantha's id is "+username);
-
-//	  Response res = get("https://jsonplaceholder.typicode.com/users");
-//	  assertEquals(200, res.getStatusCode());
-//	  String json = res.asString();
-//	  JsonPath jp = new JsonPath(json);
-//	  assertEquals("onur@swtestacademy", jp.get("email"));
-//	  assertEquals("Onur", jp.get("firstName"));
-//	  assertEquals("Baskirt", jp.get("lastName"));
   }
 }

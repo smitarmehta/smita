@@ -28,8 +28,8 @@ public class ShareNowAPITest {
 		//Asserting status message and response body.
 		System.out.println("Status code "+jsonResponseStatusCode);
 		System.out.println("Response Body is "+response.asString());
-		AssertJUnit.assertEquals(jsonResponseStatusCode, 200);
-		AssertJUnit.assertEquals(jsonResponseValue, "false");
+		Assert.assertEquals(jsonResponseStatusCode, 200);
+		Assert.assertEquals(jsonResponseValue, "false");
 	}
 	@Test
 	public void testdoorstatusfrontlefts() {
@@ -43,7 +43,7 @@ public class ShareNowAPITest {
 	//Asserting status message and response body.
 	  System.out.println("Status code "+jsonResponseStatusCode);
 	  System.out.println("Status Body is "+jsonResponseStatusMessage);
-	  AssertJUnit.assertEquals(jsonResponseStatusCode, 200);
-	  AssertJUnit.assertEquals(jsonResponseValue, "false");  
+	  Assert.assertEquals(jsonResponseStatusCode, 200);
+	  Assert.assertEquals(jsonResponseValue, "false");  
   }
 }

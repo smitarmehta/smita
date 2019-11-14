@@ -1,0 +1,193 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Georgia;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 HelveticaNeue;\f4\fswiss\fcharset0 ArialMT;\f5\fswiss\fcharset0 Helvetica-Oblique;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red0\green0\blue0;
+\red0\green0\blue0;\red255\green255\blue255;\red16\green60\blue192;\red0\green0\blue192;\red42\green0\blue255;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0\c84314;
+\cssrgb\c0\c0\c0\c4706;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c6667\c33333\c80000;\csgenericrgb\c0\c0\c75294;\csgenericrgb\c16471\c0\c100000;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}}{\leveltext\leveltemplateid1\'00;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Installations:\
+1. Installations for MAC\
+2. Install Homebrew from {\field{\*\fldinst{HYPERLINK "https://brew.sh/"}}{\fldrslt 
+\f1\fs20 \cf2 \cb3 \expnd0\expndtw0\kerning0
+https://brew.sh/}}\
+3. Install Carthage -> In terminal type - \
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs20 \cf4 \cb5 \expnd0\expndtw0\kerning0
+brew install carthage
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 4. Install Node and NPM -> Type below command in terminal\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs20 \cf4 \cb5 \expnd0\expndtw0\kerning0
+brew install node
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 5. Install JDK8 -> Download from{\field{\*\fldinst{HYPERLINK "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"}}{\fldrslt 
+\f1\fs20 \cf2 \cb3 \expnd0\expndtw0\kerning0
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html}}
+\f1\fs20 \cf4 \cb3 \expnd0\expndtw0\kerning0
+.
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+Find jdk location by executing the below command:\
+\pard\pardeftab720\sl380\partightenfactor0
+
+\f2\fs20 \cf4 \cb5 \expnd0\expndtw0\kerning0
+/usr/libexec/java_home --v
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Path will look like 
+\f3 /Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home\
+Set java home path in .zshrc file. Type below command in terminal:\
+vim ~/.zshrc
+\f0 \
+Type I which will enable insert on terminal.\
+Add below lines\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f3 \cf0 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home\
+export PATH=$JAVA_HOME/bin:$PATH\
+Pres esc
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Type :wq to save the file and exit insert mode\
+Incase you are using bash then you will have to set up the above in .bash_profile\
+6. Install Android Studio and Android SDKs\
+Download and install Android studio from {\field{\*\fldinst{HYPERLINK "https://developer.android.com/studio/"}}{\fldrslt 
+\f1\fs20 \cf2 \cb3 \expnd0\expndtw0\kerning0
+https://developer.android.com/studio/}}\
+Open Android Studio\
+At the bottom right select Configure > SDK Manager > Android SDK\
+On tab SDK Platforms select Android SDK platform versions you intend to run tests against. I selected 9.0 as that is the OS version on my device. You will have to select it according to your device.\
+On SDK Tools Tab select the below:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl260\partightenfactor0
+\ls1\ilvl0
+\f1\fs42 \cf4 \cb3 		
+\fs20 \expnd0\expndtw0\kerning0
+Android SDK Build-tools (highest version)\cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl260\partightenfactor0
+\ls1\ilvl0\cf4 \cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+Android SDK Platform-Tools\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+Android SDK Tools\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+Intel x86 Emulator Accelerator (HAXM installer)\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+Android Support Respository\cb1 \
+\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+Google Repository
+\fs42 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 Click Ok to install.\
+Now copy and Android SDK location at the top of the SDK Manager screen and set android home path in the .bash_profile or .zshrc file\
+Follow the instructions above to add data. The below path may vary as per your settings\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f3 \cf0 export ANDROID_HOME=/Users/smitamehta/Library/Android/sdk\
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Restart your terminal\
+Type add in terminal to make sure that it\'92s not giving any errors\
+7. Install Appium. Type below command in terminal\
+\pard\pardeftab720\sl264\slmult1\partightenfactor0
+
+\f2\fs20 \cf4 \cb6 \expnd0\expndtw0\kerning0
+npm install -g appium@1.7.2
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 8. Run Appium doctor to check if all installation are correct\
+\pard\pardeftab720\sl264\slmult1\partightenfactor0
+
+\f2\fs20 \cf4 \cb6 \expnd0\expndtw0\kerning0
+appium-doctor
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 9. Install Gradle\
+\pard\pardeftab720\sl264\slmult1\partightenfactor0
+
+\f2\fs20 \cf4 \cb6 \expnd0\expndtw0\kerning0
+brew install gradle
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Check Gradle version by below command\
+\pard\pardeftab720\sl264\slmult1\partightenfactor0
+
+\f2\fs20 \cf4 \cb6 \expnd0\expndtw0\kerning0
+gradle -v 
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Add below line to .bash_profile or .zshrc file\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f3 \cf0 export PATH=/usr/local/Cellar/gradle/6.0/bin:$PATH
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 10. Install Maven\
+\pard\pardeftab720\sl264\slmult1\partightenfactor0
+
+\f2\fs20 \cf4 \cb6 \expnd0\expndtw0\kerning0
+brew install maven
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Check maven version\
+\pard\pardeftab720\sl264\slmult1\partightenfactor0
+
+\f2\fs20 \cf4 \cb6 \expnd0\expndtw0\kerning0
+mvn -version
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Add below line to .bash_profile or .zshrc file\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f3 \cf0 export PATH=/usr/local/Cellar/maven/3.6.1/bin:$PATH\
+11. Download and install eclipse from {\field{\*\fldinst{HYPERLINK "https://www.eclipse.org/downloads/packages/"}}{\fldrslt 
+\f1\fs20 \cf2 \cb3 \expnd0\expndtw0\kerning0
+https://www.eclipse.org/downloads/packages/}}
+\f0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 12. Install TestNG\
+Launch Eclipse, select Help > Install New Software > type  
+\f1\fs20 \cf4 \cb3 \expnd0\expndtw0\kerning0
+\'93{\field{\*\fldinst{HYPERLINK "http://beust.com/eclipse"}}{\fldrslt \cf2 http://beust.com/eclipse}}\'94 into work with field
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+Select TestNG and click on Next and complete the dialogs\
+13. Check out the project from the gitlab link\
+\pard\pardeftab720\sl220\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://github.com/smitarmehta/smita/tree/master/sampleproject"}}{\fldrslt 
+\f4\fs20 \cf7 \cb3 \expnd0\expndtw0\kerning0
+\ul \ulc7 https://github.com/smitarmehta/smita/tree/master/sampleproject}}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 14. Execute below command in terminal to get device details\
+adb devices\
+Note the device details\
+Now start appium server by executing below command in terminal:\
+appium\
+Note you will have to bring up appium server whenever you want to run any mobile tests.\
+\
+All the other dependencies and plugins are included in pom.xml\
+\
+Execution:\
+The relevant Java files in project are below:\
+\pard\pardeftab720\partightenfactor0
+\cf0 ShareNowTest.java - This is testNG class and contains all the mobile tests.\
+In this class on line 48 (given below) please replace device name to your device name from step 14.\
+\pard\pardeftab720\partightenfactor0
+
+\f5\i \cf8 capabilities
+\f0\i0 \cf0 .setCapability(\cf9 "deviceName"\cf0 ,\cf9 "8e2e6b1b"\cf0 );\
+\pard\pardeftab720\partightenfactor0
+\cf0 ShareNowAPITest.java - This is testNG class and contains API tests.\
+1. You can run these tests individually as testNG tests.\
+2. You can run testng.xml as TestNG Suite which will run all tests.\
+3. You can run pom.xml as Maven Test which will run all tests.}

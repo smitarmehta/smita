@@ -1,55 +1,40 @@
 package sampleprojectautomation;
 
 import org.testng.annotations.Test;
-
-
-import org.testng.AssertJUnit;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.BeforeSuite;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import io.restassured.response.Response;
-
-import org.testng.annotations.Test;
 
 public class ShareNowTest {
 	public static URL url;
 	  public static DesiredCapabilities capabilities;
 	  public static AndroidDriver<MobileElement> driver;
 	  
-	  //1
+	  
 	  @BeforeTest
 	  public void setupAppium() throws MalformedURLException {
-	    //2
+	    
 	    final String URL_STRING = "http://127.0.0.1:4723/wd/hub";
 	    url = new URL(URL_STRING);
-	//3
+	
 	    capabilities = new DesiredCapabilities();
 	    capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 	    capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
 	    capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
-	    capabilities.setCapability("deviceName","8e2e6b1b");
+	    capabilities.setCapability("deviceName","8e2e6b1b");//Please provide your device name here
 	    capabilities.setCapability("platformVersion", "9");
 	    capabilities.setCapability("platformName","Android");
 	    capabilities.setCapability("locationServicesAuthorized", true);
-	    
 	    capabilities.setCapability("appPackage", "com.car2go");
 	    capabilities.setCapability("appActivity", ".activity.MainActivity");
 	    driver = new AndroidDriver<MobileElement>(url, capabilities);
@@ -74,9 +59,9 @@ public class ShareNowTest {
 	     Thread.sleep(1000);
 	     String buttonStatus=driver.findElement(By.id("com.car2go:id/loginRegisterButton")).getAttribute("enabled");
 	     System.out.println("status of Button "+buttonStatus);
-	     AssertJUnit.assertEquals(buttonStatus, "true");
+	     Assert.assertEquals(buttonStatus, "true");
 	     driver.findElement(By.id("com.car2go:id/loginRegisterButton")).click();
-	     AssertJUnit.assertEquals(driver.findElement(By.id("com.car2go:id/loginTextView")).getAttribute("enabled"), "true");
+	     Assert.assertEquals(driver.findElement(By.id("com.car2go:id/loginTextView")).getAttribute("enabled"), "true");
 	     driver.findElement(By.id("com.car2go:id/loginTextView")).click();
 	     Thread.sleep(1000);
 	     Set<String> contextSet = driver.getContextHandles();
@@ -85,14 +70,14 @@ public class ShareNowTest {
  			driver.context(contextName); //Changing the context
  		}
 	     System.out.println("Size of android.widget.EditText "+driver.findElementsByClassName("android.widget.EditText").size());
-	     AssertJUnit.assertEquals(driver.findElements(By.className("android.widget.EditText")).get(0).getAttribute("enabled"), "true");
-	     AssertJUnit.assertEquals(driver.findElements(By.className("android.widget.EditText")).get(1).getAttribute("enabled"), "true");
+	     Assert.assertEquals(driver.findElements(By.className("android.widget.EditText")).get(0).getAttribute("enabled"), "true");
+	     Assert.assertEquals(driver.findElements(By.className("android.widget.EditText")).get(1).getAttribute("enabled"), "true");
 	     driver.findElements(By.className("android.widget.EditText")).get(0).sendKeys("nataliya.lashchyk+testchallenge@gmail.com");
 	     driver.findElements(By.className("android.widget.EditText")).get(1).sendKeys("Aa123456");
-	     AssertJUnit.assertEquals(driver.findElements(By.className("android.widget.EditText")).get(1).getText(), "••••••••");
-	     AssertJUnit.assertEquals(driver.findElement(By.className("android.widget.Button")).getAttribute("enabled"), "true");
+	     Assert.assertEquals(driver.findElements(By.className("android.widget.EditText")).get(1).getText(), "••••••••");
+	     Assert.assertEquals(driver.findElement(By.className("android.widget.Button")).getAttribute("enabled"), "true");
 	     driver.findElement(By.className("android.widget.Button")).click();
-	     AssertJUnit.assertEquals(driver.findElement(By.id("com.car2go:id/profile")).getText(), "Nataliia Lashchyk");
+	     Assert.assertEquals(driver.findElement(By.id("com.car2go:id/profile")).getText(), "Nataliia Lashchyk");
 	     driver.findElement(By.id("com.car2go:id/profile")).click();
 //	    
 	  }
@@ -101,10 +86,10 @@ public class ShareNowTest {
 //		  driver.findElement(By.id("com.car2go:id/menuItem")).click();
 //		  Assert.assertEquals(driver.findElement(By.id("com.car2go:id/profile")).getText(), "Nataliia Lashchyk");
 //		  driver.findElement(By.id("com.car2go:id/profile")).click();
-		  AssertJUnit.assertEquals(driver.findElement(By.id("com.car2go:id/accountUserName")).getText(), "Nataliia Lashchyk");
-		  AssertJUnit.assertEquals(driver.findElement(By.id("com.car2go:id/accountUserAddress")).getText(), "Münchenerstr 12, 80539 München");
-		  AssertJUnit.assertEquals(driver.findElement(By.id("com.car2go:id/accountUserEmail")).getText(), "nataliya.lashchyk+testchallenge@gmail.com");
-		  AssertJUnit.assertEquals(driver.findElement(By.id("com.car2go:id/accountUserPhone")).getText(), "+*************6734");
+		  Assert.assertEquals(driver.findElement(By.id("com.car2go:id/accountUserName")).getText(), "Nataliia Lashchyk");
+		  Assert.assertEquals(driver.findElement(By.id("com.car2go:id/accountUserAddress")).getText(), "Münchenerstr 12, 80539 München");
+		  Assert.assertEquals(driver.findElement(By.id("com.car2go:id/accountUserEmail")).getText(), "nataliya.lashchyk+testchallenge@gmail.com");
+		  Assert.assertEquals(driver.findElement(By.id("com.car2go:id/accountUserPhone")).getText(), "+*************6734");
 		  
 	}
 	//Verifies Request Pin from US2
@@ -133,8 +118,8 @@ public class ShareNowTest {
 		  driver.findElement(By.className("android.widget.ImageButton")).click();
 		  driver.findElement(By.className("android.widget.ImageButton")).click();
 		  driver.findElement(By.id("com.car2go:id/rentals")).click();
-		  AssertJUnit.assertEquals(driver.findElement(By.id("com.car2go:id/group_rentals_title")).getText(), "November 2019");
-		  AssertJUnit.assertEquals(driver.findElements(By.className("android.widget.TextView")).get(2).getText(), "No trips");
+		  Assert.assertEquals(driver.findElement(By.id("com.car2go:id/group_rentals_title")).getText(), "November 2019");
+		  Assert.assertEquals(driver.findElements(By.className("android.widget.TextView")).get(2).getText(), "No trips");
 	}
 	   
 		
